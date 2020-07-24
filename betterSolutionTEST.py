@@ -1,6 +1,5 @@
 import requests
 import re
-from markdown import markdown
 from bs4 import BeautifulSoup
 from tkinter import *
 
@@ -14,9 +13,7 @@ def runCode():
 
     filename = str(t1.get())
 
-    #html = markdown(htmltext)
-
-    clean_text = ''.join(BeautifulSoup(htmltext, "html.parser").stripped_strings)
+    clean_text = ''.join(BeautifulSoup(htmltext, features = "lxml").stripped_strings)
 
     #top: editRound
     #bottom: Source
@@ -25,12 +22,12 @@ def runCode():
 
     clean_text = clean_text.replace("[", "")
     clean_text = clean_text.replace("]", "")
-
-    clean_text = re.findall('(?<=editRound)(.*?)(?=\S*\))', clean_text)
+    print(clean_text)
+    clean_text = re.findall('(?<=NE)(.*?)(?=NYC*\))', clean_text)
     clean_text = str(clean_text)
-
+    print(clean_text)
     clean_text = strip_char(clean_text, "abcdefghijklmnopqrstuvwxyzABCEFGHIJKMNOPQRSUVXYZ1234567890,:;-_'-,<>!@#$%^&*()–+=\" ", "")
-
+    print(clean_text)
     clean_text = clean_text.replace("W", "3")
     clean_text = clean_text.replace("L", "0")
     clean_text = clean_text.replace("D", "1")
@@ -46,13 +43,11 @@ def runCode():
     clean_text = clean_text.replace("]", "")
     clean_text = clean_text.replace("'", "")
 
-
+    print(clean_text)
     f = open(filename+'.csv','w')
     f.write(clean_text) #Give your csv text here.
     # Python will convert \n to os.linesep
     f.close()
-
-    print(clean_text)
 
 window=Tk()
 btn=Button(window, text="Submit", fg='blue', command=runCode)
