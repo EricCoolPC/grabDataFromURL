@@ -1,6 +1,7 @@
 import requests, io, csv
+from lxml import html
 
-CFTC_URL = r"https://ericversaw.netlify.app/aboutme"
+CFTC_URL = r"https://en.wikipedia.org/wiki/2013_New_England_Revolution_season"
 data = io.StringIO(requests.get(CFTC_URL).text)
 
 dialect = csv.Sniffer().sniff(data.read(1024))
