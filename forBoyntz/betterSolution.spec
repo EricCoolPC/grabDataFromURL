@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['betterSolution.py'],
-             pathex=['C:\\Users\\ericv\\OneDrive\\Documents\\grabDataFromURL\\forBoyntz'],
+             pathex=['C:\\Users\\Eric\\Documents\\Boytnz\\grabDataFromURL\\forBoyntz'],
              binaries=[],
              datas=[],
              hiddenimports=[],

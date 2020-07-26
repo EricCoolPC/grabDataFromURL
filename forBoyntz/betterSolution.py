@@ -23,7 +23,7 @@ def runCode():
     clean_text = clean_text.replace("[", "")
     clean_text = clean_text.replace("]", "")
 
-    clean_text = re.findall('(?<=editRound)(.*?)(?=\S*\))', clean_text)
+    clean_text = re.findall('(?<=Round123)(.*?)(?=\S*\))', clean_text)
     clean_text = str(clean_text)
 
     clean_text = strip_char(clean_text, "abcdefghijklmnopqrstuvwxyzABCEFGHIJKMNOPQRSUVXYZ1234567890,:;-_'-,<>!@#$%^&*()–+=\" ", "")
